@@ -25,12 +25,12 @@ y el color negro a cuando aún no has adivinado el número.
 `lastResult.style.backgroundColor = 'black';`
 
 9.  No estaba implementada la función de no permitir números decimales. Implementé esta función con un pequeño if y usando Math.floor() analicé el valor que traía la variable userGuess. Luego de eso ya no permitió el ingreso de decimales, pero aunque no las ingresara los decimales, los seguía contando como intentos. Lo unico que tuve que hacer es que dentro del if al detectar que un número era decimal, restara un intento, ya así la cantidad de intentos se mantenía igual. Quedó de la siguiente manera:
-`if(guessCount === 1) {`
-`      guesses.textContent = 'Número aleatorio anterior: ';`
-`    }`
-`    if (userGuess - Math.floor(userGuess) == 0) {`
-`      guesses.textContent += userGuess + ' ';`
-`    }else {`
-`      alert ("No se aceptan decimales. Por favor ingresa un número entero!");`
-`      guessCount--;`
-`    }`
+``if(guessCount === 1) {
+      guesses.textContent = 'Número aleatorio anterior: ';
+    }
+    if (userGuess - Math.floor(userGuess) == 0) {
+      guesses.textContent += userGuess + ' ';
+    }else {
+     alert ("No se aceptan decimales. Por favor ingresa un número entero!");
+      guessCount--;
+    }``

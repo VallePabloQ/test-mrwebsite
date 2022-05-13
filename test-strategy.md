@@ -14,18 +14,25 @@
 
 7.  El programa no reconocía cuando adivinabamos el número. La solución a esto fue meter `guessField.value` dentro de `Number()` para poder trabajar con números y no con texto que era lo que nos estaba mandando esa fución. Nos quedó de la siguiente  manera: `let userGuess = Number(guessField.value);`
 
-8.  Los colores de cuando se ganaba o se perdía estaban al revés. Solo pase el color verde a cuando se adivinaba el número
-`lastResult.textContent = 'Felicitaciones! adivinaste el número!';`
-`lastResult.style.backgroundColor = 'green';`
-El color rojo a cuando te pasas de intentos permitidos 
-`lastResult.textContent = '!!!Pérdistes!!!';`
-`lastResult.style.backgroundColor = 'red';` 
-y el color negro a cuando aún no has adivinado el número.
-`lastResult.textContent = 'Incorrecto! ';`
-`lastResult.style.backgroundColor = 'black';`
+8.  Los colores de cuando se ganaba o se perdía estaban al revés. Solo pase el color verde a cuando se adivinaba el número  
+```javascript
+lastResult.textContent = 'Felicitaciones! adivinaste el número!';
+lastResult.style.backgroundColor = 'green';
+```  
+El color rojo a cuando te pasas de intentos permitidos  
+```javascript
+lastResult.textContent = '!!!Pérdistes!!!';
+lastResult.style.backgroundColor = 'red';
+```  
+y el color negro a cuando aún no has adivinado el número.  
+```javascript
+lastResult.textContent = 'Incorrecto! ';
+lastResult.style.backgroundColor = 'black';
+```
 
-9.  No estaba implementada la función de no permitir números decimales. Implementé esta función con un pequeño if y usando Math.floor() analicé el valor que traía la variable userGuess. Luego de eso ya no permitió el ingreso de decimales, pero aunque no las ingresara los decimales, los seguía contando como intentos. Lo unico que tuve que hacer es que dentro del if al detectar que un número era decimal, restara un intento, ya así la cantidad de intentos se mantenía igual. Quedó de la siguiente manera:
-``if(guessCount === 1) {
+9.  No estaba implementada la función de no permitir números decimales. Implementé esta función con un pequeño if y usando Math.floor() analicé el valor que traía la variable userGuess. Luego de eso ya no permitió el ingreso de decimales, pero aunque no las ingresara los decimales, los seguía contando como intentos. Lo unico que tuve que hacer es que dentro del if al detectar que un número era decimal, restara un intento, ya así la cantidad de intentos se mantenía igual. Quedó de la siguiente manera:  
+```javascript
+    if(guessCount === 1) {
       guesses.textContent = 'Número aleatorio anterior: ';
     }
     if (userGuess - Math.floor(userGuess) == 0) {
@@ -33,4 +40,5 @@ y el color negro a cuando aún no has adivinado el número.
     }else {
      alert ("No se aceptan decimales. Por favor ingresa un número entero!");
       guessCount--;
-    }``
+    }
+```
